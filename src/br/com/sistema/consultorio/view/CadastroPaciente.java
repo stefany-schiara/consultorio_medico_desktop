@@ -45,6 +45,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
 		comboEstado = new javax.swing.JComboBox<>();
 		lblBairro = new javax.swing.JLabel();
 		txtBairro = new javax.swing.JTextField();
+		btnVoltar = new javax.swing.JButton();
 		btnSalvar = new javax.swing.JButton();
 		lblBackground = new javax.swing.JLabel();
 
@@ -195,6 +196,14 @@ public class CadastroPaciente extends javax.swing.JFrame {
 			}
 		});
 		getContentPane().add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 560, 410, 30));
+		
+		btnVoltar.setText("Voltar");
+		btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnVoltarActionPerformed(evt);
+			}
+		});
+        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, 80, 30));
 
 		btnSalvar.setText("Salvar");
 		btnSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -213,6 +222,10 @@ public class CadastroPaciente extends javax.swing.JFrame {
 
 	private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {
 		controller.gravarPaciente();
+	}
+	
+	private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+		controller.voltarMenuPrincipal();
 	}
 
 	public void exibirMensagem(String mensagem) {
@@ -285,6 +298,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
 	}
 
 	private javax.swing.JButton btnSalvar;
+	private javax.swing.JButton btnVoltar;
 	private javax.swing.JComboBox<String> comboEstado;
 	private javax.swing.JLabel labelDtNascimento;
 	private javax.swing.JLabel lblBackground;

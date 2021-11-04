@@ -1,4 +1,8 @@
 package br.com.sistema.consultorio.view;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import br.com.consultorio.medico.controller.MenuPrincipalController;
 
 /**
  *
@@ -8,8 +12,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
 	private static final long serialVersionUID = 1L;
 	
+	private final MenuPrincipalController controller;
+	
 	public MenuPrincipal() {
         initComponents();
+        controller = new MenuPrincipalController(this);
+        
     }
    
     private void initComponents() {
@@ -18,6 +26,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuPrincipal = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         itemMenuCadastroPaciente = new javax.swing.JMenuItem();
+        itemMenuCadastroPaciente.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent evt) {
+        		itemCadastroPacienteActionPerformed(evt);
+        	}
+        });
         itemMenuCadastroMedico = new javax.swing.JMenuItem();
         menuPesquisa = new javax.swing.JMenu();
         itemMenuPesquisaPaciente = new javax.swing.JMenuItem();
@@ -72,6 +85,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pack();
     }
+    
+    private void itemCadastroPacienteActionPerformed(java.awt.event.ActionEvent evt) {
+		controller.acessarCadastroPaciente();
+	}
     
     public static void main(String args[]) {       
         try {

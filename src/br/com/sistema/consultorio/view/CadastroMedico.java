@@ -1,4 +1,7 @@
 package br.com.sistema.consultorio.view;
+
+import br.com.consultorio.medico.controller.CadastroMedicoController;
+
 /**
  *
  * @author esqui
@@ -6,9 +9,11 @@ package br.com.sistema.consultorio.view;
 public class CadastroMedico extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private final CadastroMedicoController controller;
 
 	public CadastroMedico() {
 		initComponents();
+		controller = new CadastroMedicoController(this);
 	}
 
 	private void initComponents() {
@@ -30,6 +35,7 @@ public class CadastroMedico extends javax.swing.JFrame {
 		txtEspecialidade = new javax.swing.JTextField();
 		lblCrm = new javax.swing.JLabel();
 		txtCrm = new javax.swing.JTextField();
+		btnVoltar = new javax.swing.JButton();
 		btnSalvar = new javax.swing.JButton();
 		lblBackground = new javax.swing.JLabel();
 
@@ -133,6 +139,14 @@ public class CadastroMedico extends javax.swing.JFrame {
 		});
 		getContentPane().add(txtCrm, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 120, 30));
 
+		btnVoltar.setText("Voltar");
+		btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnVoltarActionPerformed(evt);
+			}
+		});
+		getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, 80, 30));
+
 		btnSalvar.setText("Salvar");
 		getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 630, 80, 30));
 
@@ -141,6 +155,10 @@ public class CadastroMedico extends javax.swing.JFrame {
 		getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 700));
 
 		pack();
+	}
+
+	private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+		controller.voltarMenuPrincipal();
 	}
 
 	private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtNomeActionPerformed
@@ -166,7 +184,7 @@ public class CadastroMedico extends javax.swing.JFrame {
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String args[]) {		
+	public static void main(String args[]) {
 		try {
 			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
@@ -187,15 +205,16 @@ public class CadastroMedico extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(CadastroMedico.class.getName()).log(java.util.logging.Level.SEVERE, null,
 					ex);
 		}
-		
+
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new CadastroMedico().setVisible(true);
 			}
 		});
 	}
-	
+
 	private javax.swing.JButton btnSalvar;
+	private javax.swing.JButton btnVoltar;
 	private javax.swing.JLabel labelDtNascimento;
 	private javax.swing.JLabel lblBackground;
 	private javax.swing.JLabel lblCadastroMedico;

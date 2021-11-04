@@ -1,5 +1,8 @@
 package br.com.sistema.consultorio.view;
 
+import br.com.consultorio.medico.controller.CadastroMedicoController;
+import br.com.consultorio.medico.controller.PesquisarConsultasAgendadasController;
+
 /**
  *
  * @author esqui
@@ -7,9 +10,11 @@ package br.com.sistema.consultorio.view;
 public class PesquisarConsultasAgendadas extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private final PesquisarConsultasAgendadasController controller;
 	
     public PesquisarConsultasAgendadas() {
         initComponents();
+        controller = new PesquisarConsultasAgendadasController(this);
     }
    
     private void initComponents() {
@@ -53,6 +58,14 @@ public class PesquisarConsultasAgendadas extends javax.swing.JFrame {
 
         txtDtAgendamento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         getContentPane().add(txtDtAgendamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 130, 30));
+        
+        btnVoltar.setText("Voltar");
+		btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnVoltarActionPerformed(evt);
+			}
+		});
+        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, 80, 30));
 
         btnPesquisar.setText("Pesquisar");
         getContentPane().add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, 80, 30));
@@ -77,6 +90,10 @@ public class PesquisarConsultasAgendadas extends javax.swing.JFrame {
 
         pack();
     }
+    
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+		controller.voltarMenuPrincipal();
+	}
     
     public static void main(String args[]) {       
         try {
@@ -105,6 +122,7 @@ public class PesquisarConsultasAgendadas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPesquisar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> comboMedico;
     private javax.swing.JComboBox<String> comboPaciente;
     private javax.swing.JTable jTable1;

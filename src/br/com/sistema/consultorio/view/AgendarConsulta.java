@@ -1,5 +1,8 @@
 package br.com.sistema.consultorio.view;
 
+import br.com.consultorio.medico.controller.AgendarConsultaController;
+
+
 /**
  *
  * @author esqui
@@ -7,9 +10,11 @@ package br.com.sistema.consultorio.view;
 public class AgendarConsulta extends javax.swing.JFrame {
    
 	private static final long serialVersionUID = 1L;
+	private final AgendarConsultaController controller;
 	
     public AgendarConsulta() {
         initComponents();
+        controller = new AgendarConsultaController(this);
     }
     
     private void initComponents() {
@@ -26,6 +31,7 @@ public class AgendarConsulta extends javax.swing.JFrame {
         lblEspecialidade = new javax.swing.JLabel();
         txtEspecialidade = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,6 +90,14 @@ public class AgendarConsulta extends javax.swing.JFrame {
         });
         getContentPane().add(txtEspecialidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 410, 30));
 
+        btnVoltar.setText("Voltar");
+		btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnVoltarActionPerformed(evt);
+			}
+		});
+        getContentPane().add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 630, 80, 30));
+        
         btnSalvar.setText("Salvar");
         getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 630, 80, 30));
 
@@ -105,9 +119,11 @@ public class AgendarConsulta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHorarioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {
+		controller.voltarMenuPrincipal();
+	}
+    
     public static void main(String args[]) {
         
         try {
@@ -141,6 +157,7 @@ public class AgendarConsulta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> comboDtDisponiveis;
     private javax.swing.JComboBox<String> comboMedico;
     private javax.swing.JComboBox<String> comboPaciente;
