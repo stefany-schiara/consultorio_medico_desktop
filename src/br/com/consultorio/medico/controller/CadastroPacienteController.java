@@ -1,0 +1,45 @@
+package br.com.consultorio.medico.controller;
+
+public class CadastroPacienteController {
+	
+	private final CadastroPaciente view;
+	private final CadastroPacienteHelper helper;
+	
+	public CadastroPacienteController(CadastroPaciente view) {
+		this.view = view;
+		this.helper = new CadastroPacienteHelper(view);
+
+	}
+	
+	public void gravarPaciente() {
+		try {
+
+			Paciente paciente = helper.obterModelo();
+			PacienteDao pacienteDao = new PacienteDao();			
+
+			if (view.getTxtNome().getText().equals("")) {
+				view.exibirMensagem("Campo Nome não pode ser vazio!");
+			} else if(view.getTxtDtNascimento().getText().equals("")) {
+				view.exibirMensagem("Campo Data de Nascimento não pode ser vazio!");
+			} else if (view.getTxtCpf().getText().equals("")) {
+				view.exibirMensagem("Campo CPF não pode ser vazio!");
+			} else if (view.getTxtCelular().getText().equals("")) {
+				view.exibirMensagem("Campo Celular não pode ser vazio!");
+			} else if (view.getTxtCep().getText().equals("")) {
+				view.exibirMensagem("Campo CEP não pode ser vazio!");
+			} else if (view.getTxtLogradouro().getText().equals("")) {
+				view.exibirMensagem("Campo Logradouro não pode ser vazio!");
+			} else if (view.getTxtNumero().getText().equals("")) {
+				view.exibirMensagem("Campo Numero não pode ser vazio!");
+			} else if (view.getTxtBairro().getText().equals("")) {
+				view.exibirMensagem("Campo Bairro não pode ser vazio!");
+			} else {
+				pacienteDao.insertPaciente(paciente);								
+			}
+		} catch (Exception e) {
+			e.printStackTrace();			
+		}
+
+	}
+
+}
