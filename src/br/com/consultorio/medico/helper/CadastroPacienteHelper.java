@@ -4,6 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import br.com.consultorio.medico.model.Paciente;
+import br.com.sistema.consultorio.view.CadastroPaciente;
+
 public class CadastroPacienteHelper {
 
 	private final CadastroPaciente view;

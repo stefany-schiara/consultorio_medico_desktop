@@ -1,5 +1,10 @@
 package br.com.consultorio.medico.controller;
 
+import br.com.consultorio.medico.dao.PacienteDao;
+import br.com.consultorio.medico.helper.CadastroPacienteHelper;
+import br.com.consultorio.medico.model.Paciente;
+import br.com.sistema.consultorio.view.CadastroPaciente;
+
 public class CadastroPacienteController {
 	
 	private final CadastroPaciente view;

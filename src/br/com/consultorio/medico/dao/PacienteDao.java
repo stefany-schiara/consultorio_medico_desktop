@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
-import br.com.medsystem.connection.ConnectionFactory;
-import br.com.medsystem.model.Paciente;
+import br.com.consultorio.medico.model.Paciente;
+import br.com.sistema.consultorio.connection.ConnectionFactory;
 
 public class PacienteDao {
 

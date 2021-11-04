@@ -2,6 +2,8 @@ package br.com.sistema.consultorio.view;
 
 import javax.swing.JOptionPane;
 
+import br.com.consultorio.medico.controller.CadastroPacienteController;
+
 /**
  *
  * @author esqui
